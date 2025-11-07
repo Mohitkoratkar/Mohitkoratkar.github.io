@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohit Koratkar — Experience & Certifications</title>
+
+  <!-- Base stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Modern web fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body, p, h1, h2, h3, li, a, nav, .brand, .tag {
+      font-family: "Segoe UI", "Inter", Arial, sans-serif !important;
+      letter-spacing: 0.2px;
+    }
+
+    .main { padding-top: 10px !important; }
+
+    .experience-section {
+      padding: 20px 40px 30px 40px;
+      line-height: 1.8 !important;
+    }
+
+    .experience-section h1 {
+      font-size: 46px !important;
+      margin-top: 4px !important;
+      margin-bottom: 10px !important;
+      font-weight: 700 !important;
+      color: var(--text) !important;
+    }
+
+    .experience-section h2 {
+      font-size: 26px !important;
+      margin-top: 24px !important;
+      color: var(--text) !important;
+      font-weight: 700 !important;
+    }
+
+    .cert-entry {
+      margin-top: 18px;
+      margin-bottom: 22px;
+    }
+
+    .cert-entry strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cert-entry p {
+      margin: 4px 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    hr {
+      border: none !important;
+      border-top: 1px solid rgba(255,255,255,0.15) !important;
+      margin: 25px 0 !important;
+    }
+    :root.light hr {
+      border-top: 1px solid rgba(0,0,0,0.1) !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="brand">Mohit<br>Koratkar</div>
+        <div class="tag">Cloud • DevOps • Linux</div>
+        <nav class="side">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Project Page</a>
+          <a href="experience.html" class="active">Experience &amp; Certifications</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <div class="mini">i</div><div>v1.0</div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="top-controls">
+        
+      </div>
+
+      <section class="experience-section">
+        <h1>Experience & Certifications</h1>
+        
+        <h2>💼 Experience:</h2>
+        <h2>🏆 Certifications:</h2>
+
+        <div class="cert-entry">
+          <strong>AWS Cloud Practitioner Essentials</strong>
+          <p>Validated knowledge of cloud concepts, AWS services, security, pricing, and support.</p>
+        </div>
+
+        <div class="cert-entry">
+          <strong>Oracle Certified Foundations Associate</strong>
+          <p>Demonstrated understanding of cloud applications, hybrid cloud, and cloud storage on Oracle Cloud.</p>
+        </div>
+
+        <div class="cert-entry">
+          <strong>Internshala Web Development Certificate</strong>
+          <p>Completed hands-on training in HTML, CSS, JavaScript, and responsive web design.</p>
+        </div>
+
+        <div class="cert-entry">
+          <strong>AWS Technical Essentials</strong>
+          <p>Learned hands-on experience in Amazon EC2, IAM, S3, RDS, and DynamoDB.</p>
+        </div>
+
+        <hr>
+        <p style="color:var(--muted);font-size:16px;"></p>
+      </section>
+
+      <footer style="margin-top:40px;color:var(--muted);text-align:center">
+        © <span id="year"></span> Mohit Koratkar
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

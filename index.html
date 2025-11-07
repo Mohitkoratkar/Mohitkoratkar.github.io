@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohit Koratkar — Home</title>
+
+  <!-- base styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Inter font for consistency -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* global font */
+    body, p, h1, h2, h3, li, a, nav, .brand, .tag {
+      font-family: "Segoe UI", "Inter", Arial, sans-serif !important;
+    }
+
+    /* Sidebar */
+    .sidebar .brand {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .sidebar .tag {
+      display: block;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    /* Main layout - centered */
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 80px;
+      height: 100vh;
+      padding: 0 80px;
+      box-sizing: border-box;
+    }
+
+    .intro {
+      max-width: 650px;
+    }
+
+    .intro h1 {
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .intro h2 {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 25px;
+    }
+
+    .intro p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* profile image */
+    .profile-frame {
+      width: 340px;
+      height: 360px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0b0d0e, #131516);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* social icons row */
+    .social-row {
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .icon-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background: var(--accent2);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      margin-top: 46px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .main {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+      }
+      .intro {
+        text-align: center;
+      }
+      .social-row {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Sidebar">
+      <div>
+        <div class="brand">Mohit<br>Koratkar</div>
+        
+
+        <nav class="side" aria-label="Main navigation">
+          <a href="index.html" class="active">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Project Page</a>
+          <a href="experience.html">Experience &amp; Certifications</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="mini">i</div>
+        <div>v1.0</div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main" role="main">
+      <div class="intro">
+        <h1>Hi, I'm Mohit Koratkar</h1>
+        <h2>Cloud | DevOps | Linux Enthusiast</h2>
+
+        <p>
+          Hello! I’m <strong>Mohit Koratkar</strong>, a passionate Cloud and DevOps developer skilled in
+          <strong>AWS, Linux, Docker, CI/CD,</strong> and <strong>containerization</strong>. I specialize in building scalable
+          and automated cloud-based solutions. With a strong academic background and a continuous learning mindset,
+          I’m committed to delivering optimized and reliable cloud architectures.
+        </p>
+
+        <!-- social icons using inline SVG -->
+        <div class="social-row">
+          <!-- Email -->
+          <a class="icon-btn" href="mailto:koratkarmohit6@gmail.com" title="Email">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6.5h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-11z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 6.5l-9 6-9-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a class="icon-btn" href="https://www.linkedin.com/in/mohit-koratkar-7a8603239/" target="_blank" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.98 3.5a2.5 2.5 0 1 1-.004 5.001A2.5 2.5 0 014.98 3.5zM3.5 9h3v11h-3V9zm7 0h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V20h-3v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V20h-3V9z"/>
+            </svg>
+          </a>
+
+          <!-- GitHub -->
+          <a class="icon-btn" href="https://github.com/Mohitkoratkar" target="_blank" title="GitHub">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-1.9c-2.9.6-3.5-1.1-3.5-1.1-.5-1.4-1.3-1.8-1.3-1.8-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 1.7-.7 1.7-.7.9-1.6 2.5-1.2 3.2-.9.1-.7.4-1.2.7-1.5-2.3-.2-4.8-1.1-4.8-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .9.9-.2 2-.3 3-.3s2.1.1 3 .3c2.1-1.2 3-.9 3-.9.6 1.5.2 2.6.1 2.9.7.7 1.1 1.6 1.1 2.7 0 3.8-2.5 4.6-4.9 4.9.4.3.7 1 .7 2v3c0 .3.2.6.7.5 4.1-1.4 7.1-5.3 7.1-9.9C23.1 5.3 18.3.5 12 .5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <aside>
+        <div class="profile-frame">
+          <img src="mohit.jpg/WhatsApp Image 2024-09-28 at 00.23.47_823de42a.jpg" alt="Mohit Koratkar">
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

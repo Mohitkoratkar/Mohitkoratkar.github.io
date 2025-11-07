@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohit Koratkar — About</title>
+
+  <!-- Base stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Modern web fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* GLOBAL FONT — Segoe UI first (similar to Calibri), fallback to Inter */
+    body, p, h1, h2, h3, li, a, nav, .brand, .tag {
+      font-family: "Segoe UI", "Inter", Arial, sans-serif !important;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
+
+    /* Adjust spacing to bring “About Me” heading up */
+    .main { padding-top: 10px !important; }
+    .about-section {
+      padding: 15px 40px 30px 40px;
+      line-height: 1.8 !important;
+    }
+
+    /* Typography hierarchy */
+    .about-section h1 {
+      font-size: 46px !important;
+      margin-top: 4px !important;
+      margin-bottom: 10px !important;
+      font-weight: 700 !important;
+      color: var(--text) !important;
+    }
+
+    .about-section h2 {
+      font-size: 26px !important;
+      margin-top: 24px !important;
+      color: var(--text) !important;
+      font-weight: 700 !important;
+    }
+
+    .about-section h3 {
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      margin-top: 14px !important;
+      color: var(--text) !important;
+    }
+
+    .about-section p, .about-section li {
+      color: var(--muted) !important;
+      font-size: 16px !important;
+      margin: 6px 0 !important;
+    }
+
+    .about-section hr {
+      border: none !important;
+      border-top: 1px solid rgba(255,255,255,0.15) !important;
+      margin: 22px 0 !important;
+    }
+
+    :root.light .about-section hr {
+      border-top: 1px solid rgba(0,0,0,0.1) !important;
+    }
+
+    ul { list-style: none; padding: 0; margin: 0; }
+    ul li::before { content: "💡 "; color: var(--accent2); font-weight: bold; margin-right: 4px; }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="brand">Mohit<br>Koratkar</div>
+        <div class="tag">Cloud • DevOps • Linux</div>
+        <nav class="side">
+          <a href="index.html">Home</a>
+          <a href="about.html" class="active">About</a>
+          <a href="projects.html">Project Page</a>
+          <a href="experience.html">Experience &amp; Certifications</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <div class="mini">i</div><div>v1.0</div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="top-controls">
+        
+      </div>
+
+      <section class="about-section">
+       <h2>Who I Am:</h2>
+        <p>
+          I am a <strong>Cloud Developer</strong> with expertise in 
+          <strong>AWS, Linux, Computer Networks</strong>, and <strong>DevOps practices</strong>.  
+          I hold a <strong>B.Tech in Electronics & Computer Engineering</strong> and am passionate about scalable, 
+          cloud-based solutions and automation.
+        </p>
+
+        <hr>
+
+        <h2>Education:</h2>
+
+        <p>🎓 <strong>B.Tech in Electronics & Computer Engineering</strong><br>
+        Maharashtra Institute of Technology, Aurangabad<br>
+        <strong>CGPA:</strong> 7.56 / 10</p>
+        <br>
+
+        <p>🎓 <strong>HSC</strong><br>
+        Jawaharlal Darda Junior College, Yavatmal<br>
+        <strong>Percentage:</strong> 83.83%</p>
+        <br>
+
+        <p>🎓 <strong>SSC</strong><br>
+        Loknayak Bapuji Aney School, Yavatmal<br>
+        <strong>Percentage:</strong> 88.40%</p>
+        <br>
+
+        <hr>
+
+        <h2>What I Do:</h2>
+        <ul>
+          <li>Developing scalable web & cloud-based applications</li>
+          <li>Working with AWS, Linux, SQL & Networking tools</li>
+          <li>Optimizing database performance & queries</li>
+          <li>Automating cloud tasks and exploring DevOps tools</li>
+        </ul>
+
+        <hr>
+
+        <h2>Skills:</h2>
+
+        <h3>Development & Deployment:</h3>
+        <p>✅ AWS, CI/CD, SQL, Git, Jenkins</p>
+
+        <h3>Programming & Scripting:</h3>
+        <p>✅ Python, Bash, Shell scripting</p>
+
+        <h3>Databases & Tools:</h3>
+        <p>✅ MySQL, Git, GitHub, Docker</p>
+
+        <h3>Development Methodologies:</h3>
+        <p>✅ SDLC, Object-Oriented Programming (OOP)</p>
+
+        <h3>Other Skills:</h3>
+        <p>✅ Debugging, API Integration, Troubleshooting</p>
+      </section>
+
+      <footer style="margin-top:40px;color:var(--muted);text-align:center">
+        © <span id="year"></span> Mohit Koratkar
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

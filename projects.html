@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohit Koratkar — Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div>
+        <div class="brand">Mohit<br>Koratkar</div>
+        <div class="tag">Cloud • DevOps • Linux</div>
+        <nav class="side">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html" class="active">Project Page</a>
+          <a href="experience.html">Experience &amp; Certifications</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer"><div class="mini">i</div><div>v1.0</div></div>
+    </aside>
+
+    <main class="main">
+      <div class="top-controls"></div>
+
+      <section style="padding:28px 36px">
+        <h1 class="headline" style="font-size:48px">Projects</h1>
+        <div class="card">
+          <p style="color:var(--muted)"></p>
+        </div>
+
+        <!-- placeholder grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px">
+          
+        </div>
+      </section>
+
+      <footer style="margin-top:46px;color:var(--muted);text-align:center">© <span id="year"></span> Mohit Koratkar</footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
