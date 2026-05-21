@@ -1,5 +1,5 @@
 # This is CI/CD pipeline file
-name: Docker CI/CD
+name: Docker CI/CD #pipeline name
 
 on:
   push:
