@@ -1,36 +1,46 @@
-// theme toggle & persistence
-(function(){
+// Theme Toggle & Persistence
+(function () {
   const btn = document.getElementById('themeToggle');
   const saved = localStorage.getItem('mk_theme');
-  if(saved === 'light') document.documentElement.classList.add('light');
+  if (saved === 'light') document.documentElement.classList.add('light');
 
-  if(btn) btn.addEventListener('click', ()=>{
-    document.documentElement.classList.toggle('light');
-    const theme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
-    localStorage.setItem('mk_theme', theme);
-    btn.setAttribute('aria-pressed', document.documentElement.classList.contains('light'));
-  });
+  if (btn) {
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      const theme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+      localStorage.setItem('mk_theme', theme);
+      btn.setAttribute('aria-pressed', document.documentElement.classList.contains('light'));
+    });
+  }
 })();
 
-// smooth scroll for same-page anchors (works across pages for hash links too)
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', function(e){
-    const href = this.getAttribute('href');
-    if(href.length>1){
-      e.preventDefault();
-      const el = document.querySelector(href);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-    }
+// Scroll Reveal Observer
+document.addEventListener('DOMContentLoaded', () => {
+  const reveals = document.querySelectorAll('.scroll-reveal, .project-card, .cert-entry, .card');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  reveals.forEach((el) => {
+    el.classList.add('scroll-reveal');
+    observer.observe(el);
   });
 });
 
-// fallback profile image
-(function(){
-  const img = document.querySelector('.frame img');
-  if(!img) return;
-  img.onerror = function(){
-    this.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000"><rect fill="#111" width="100%" height="100%"/><text x="50%" y="50%" fill="#888" font-family="Inter,Arial" font-size="28" text-anchor="middle" dominant-baseline="middle">Profile image</text></svg>'
-    );
-  };
-})();
+// Cursor Spotlight Effect on Cards
+document.addEventListener('mousemove', (e) => {
+  document.querySelectorAll('.project-card, .card').forEach((card) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  });
+});
