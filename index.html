@@ -5,27 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohit Koratkar — Cloud & DevOps Engineer</title>
   
-  <!-- Exact Google Fonts Import -->
+  <!-- Google Fonts: Inter & Fira Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fcfcfd;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --accent: #000000;
-      --accent-hover: #1e293b;
-      --radius: 12px;
-      
-      /* Typography Variables */
-      --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      
-      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --bg-primary: #0d1224;
+      --bg-secondary: #101123;
+      --card-bg: #11152c;
+      --border-color: #1b2c68a0;
+      --text-main: #ffffff;
+      --text-muted: #d3d8e8;
+      --pink: #ec4899;
+      --violet: #8b5cf6;
+      --emerald: #16f2b3;
+      --amber: #fcd34d;
+      --cyan: #22d3ee;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Fira Code', monospace;
     }
 
     * {
@@ -36,29 +35,24 @@
 
     html {
       scroll-behavior: smooth;
-      font-family: var(--font-body);
-      background-color: var(--bg);
+      background-color: var(--bg-primary);
       color: var(--text-main);
+      font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
       overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.14) 0%, transparent 50%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
     }
 
     a {
       text-decoration: none;
       color: inherit;
-    }
-
-    /* Headings Typography Application */
-    h1, h2, h3, h4, h5, h6, 
-    .brand-logo, 
-    .section-title, 
-    .project-num, 
-    .edu-title {
-      font-family: var(--font-heading);
     }
 
     .container {
@@ -67,937 +61,1150 @@
       padding: 0 24px;
     }
 
-    /* Animated Header */
+    /* ----------------------------------
+       NAVBAR
+    ---------------------------------- */
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 1000;
-      background: rgba(252, 252, 253, 0.85);
+      background: rgba(13, 18, 36, 0.85);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-      transition: all 0.3s var(--ease-out-expo);
-      transform: translateY(-100%);
-      animation: slideDownNav 0.8s var(--ease-out-expo) forwards 0.2s;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    @keyframes slideDownNav {
-      to { transform: translateY(0); }
-    }
-
-    .nav-wrapper {
+    .nav-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       height: 76px;
     }
 
-    .brand-logo {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: var(--text-main);
-      transition: transform 0.3s ease;
-    }
-
-    .brand-logo:hover {
-      transform: scale(1.03);
+    .brand {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--emerald);
+      letter-spacing: 0.5px;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 32px;
       list-style: none;
+      gap: 28px;
     }
 
     .nav-links a {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
-      color: var(--text-muted);
-      transition: all 0.25s ease;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--text-main);
-      transition: width 0.3s var(--ease-out-expo);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       color: var(--text-main);
-      font-weight: 600;
+      transition: color 0.25s ease;
     }
 
-    .btn-resume {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 20px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      background: #fff;
-      color: var(--text-main);
-      transition: all 0.3s var(--ease-out-expo);
+    .nav-links a:hover {
+      color: var(--pink);
     }
 
-    .btn-resume:hover {
-      background: var(--text-main);
-      color: #fff;
-      border-color: var(--text-main);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-    }
-
-    /* Scroll Reveal Styles */
-    .reveal {
-      opacity: 0;
-      transform: translateY(35px);
-      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Section Wrapper Styles */
+    /* ----------------------------------
+       SECTION DIVIDERS & PILL HEADERS
+    ---------------------------------- */
     section {
-      padding: 110px 0 70px;
-    }
-
-    .section-title {
-      font-size: 36px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 48px;
-      letter-spacing: -0.5px;
-    }
-
-    /* 1. HERO SECTION & KEYFRAMES */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
+      padding: 80px 0;
       position: relative;
-      background-image: 
-        linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
-      background-size: 40px 40px;
-      padding-top: 120px;
-      animation: gridPulse 8s ease-in-out infinite alternate;
     }
 
-    @keyframes gridPulse {
-      0% { background-size: 40px 40px; }
-      100% { background-size: 42px 42px; }
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-content h1 {
-      font-size: 52px;
-      line-height: 1.15;
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -1px;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 3px;
-      background-color: var(--text-main);
-      animation: blink 0.9s infinite;
-      margin-left: 2px;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    .hero-content .subtitle {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 20px;
-    }
-
-    .hero-content p {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 540px;
-      margin-bottom: 32px;
-    }
-
-    /* Floating Social Icons */
-    .social-row {
+    .section-divider {
       display: flex;
-      gap: 12px;
-    }
-
-    .social-card {
-      width: 44px;
-      height: 44px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      background: #fff;
-      color: var(--text-main);
-      transition: all 0.3s var(--ease-out-expo);
-    }
-
-    .social-card:hover {
-      background: var(--text-main);
-      color: #fff;
-      border-color: var(--text-main);
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .hero-illustration {
-      display: flex;
-      justify-content: center;
-      animation: floatGraphic 5s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatGraphic {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-16px); }
-    }
-
-    .hero-illustration svg {
-      width: 100%;
-      max-width: 440px;
-      height: auto;
-    }
-
-    /* 2. SKILLS SECTION */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 18px;
-    }
-
-    .skill-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px 16px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      transition: all 0.35s var(--ease-out-expo);
-      cursor: pointer;
+      margin-bottom: 56px;
     }
 
-    .skill-card svg {
-      width: 36px;
-      height: 36px;
-      fill: currentColor;
-      transition: transform 0.35s var(--ease-out-expo);
+    .divider-line {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #1a1443, transparent);
     }
 
-    .skill-card span {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-main);
-      transition: color 0.35s ease;
+    .divider-line.left {
+      background: linear-gradient(90deg, transparent, #1a1443);
     }
 
-    .skill-card:hover {
-      background: var(--accent);
+    .divider-line.right {
+      background: linear-gradient(90deg, #1a1443, transparent);
+    }
+
+    .section-pill {
+      background: #1a1443;
       color: #ffffff;
-      border-color: var(--accent);
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
-    }
-
-    .skill-card:hover svg {
-      transform: scale(1.15) rotate(4deg);
-    }
-
-    .skill-card:hover span {
-      color: #ffffff;
-    }
-
-    /* 3. ABOUT ME SECTION */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 50px;
-      align-items: start;
-    }
-
-    .about-avatar {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-      background: #fff;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-      transition: transform 0.4s var(--ease-out-expo);
-    }
-
-    .about-avatar:hover {
-      transform: translateY(-6px);
-    }
-
-    .about-avatar img {
-      width: 100%;
-      height: 380px;
-      object-fit: cover;
-      border-radius: 12px;
-      display: block;
-    }
-
-    .about-text h3 {
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-
-    .about-text p {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .edu-box {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-    }
-
-    .edu-title {
+      padding: 10px 24px;
+      border-radius: 6px;
       font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .edu-item {
-      margin-bottom: 12px;
-      padding-left: 14px;
-      border-left: 2px solid var(--accent);
+    /* Gradient HR Separator */
+    .gradient-hr {
+      height: 1px;
+      border: none;
+      background: linear-gradient(90deg, transparent, var(--violet), var(--pink), transparent);
+      opacity: 0.4;
+      margin: 0 auto;
+    }
+
+    /* ----------------------------------
+       1. HERO SECTION & CODE WINDOW
+    ---------------------------------- */
+    .hero {
+      padding: 70px 0 90px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 28px;
+    }
+
+    .text-pink {
+      color: var(--pink);
+    }
+
+    .text-emerald {
+      color: var(--emerald);
+    }
+
+    .hero-socials {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .social-icon {
+      color: var(--pink);
+      transition: transform 0.25s ease, color 0.25s ease;
+      display: inline-flex;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2);
+      color: var(--emerald);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Gradient Border Contact Button */
+    .btn-gradient-outline {
+      padding: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--pink), var(--violet));
+      display: inline-block;
       transition: transform 0.25s ease;
     }
 
-    .edu-item:hover {
-      transform: translateX(6px);
+    .btn-gradient-outline:hover {
+      transform: translateY(-2px);
     }
 
-    .edu-item strong {
-      font-size: 15px;
-      color: var(--text-main);
-    }
-
-    .edu-item p {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 0;
-    }
-
-    /* 4. PROJECTS SECTION */
-    .projects-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 32px;
-    }
-
-    .projects-header .sub-tag {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .projects-header h2 {
-      font-size: 36px;
-      font-weight: 700;
-    }
-
-    .projects-header .swipe-hint {
+    .btn-gradient-inner {
+      background: var(--bg-primary);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 999px;
       font-size: 13px;
-      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.25s ease;
     }
 
-    .projects-scroll {
+    .btn-gradient-outline:hover .btn-gradient-inner {
+      background: transparent;
+    }
+
+    /* Solid Gradient Resume Button */
+    .btn-gradient-solid {
+      background: linear-gradient(90deg, var(--pink), var(--violet));
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-gradient-solid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(236, 72, 153, 0.35);
+    }
+
+    /* Code Editor Card Component */
+    .code-window {
+      background: linear-gradient(135deg, #0d1224 0%, #0a0d37 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .code-window::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--pink), var(--violet), transparent);
+    }
+
+    .window-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot.red { background: #f87171; }
+    .dot.yellow { background: #fb923c; }
+    .dot.green { background: #bbf7d0; }
+
+    .code-body {
+      padding: 24px;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      line-height: 1.75;
+      overflow-x: auto;
+    }
+
+    .c-pink { color: #f472b6; }
+    .c-white { color: #ffffff; }
+    .c-amber { color: #fcd34d; }
+    .c-gray { color: #94a3b8; }
+    .c-emerald { color: #34d399; }
+    .c-orange { color: #fb923c; }
+    .c-cyan { color: #22d3ee; }
+
+    /* ----------------------------------
+       2. ABOUT SECTION
+    ---------------------------------- */
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
     }
 
-    .project-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
+    .about-label {
+      color: var(--emerald);
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .about-text {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .about-img-box {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-img-box img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      filter: grayscale(100%);
+      transition: all 0.5s ease;
+      border: 2px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .about-img-box img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+      border-color: var(--emerald);
+    }
+
+    /* ----------------------------------
+       3. EXPERIENCE & EDUCATION CARDS
+    ---------------------------------- */
+    .split-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .illustration-panel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cards-stack {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .glow-card {
+      background: var(--bg-secondary);
+      border: 1px solid #2a2e5a;
+      border-radius: 12px;
+      padding: 22px 24px;
       position: relative;
-      transition: all 0.4s var(--ease-out-expo);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      overflow: hidden;
     }
 
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    .glow-card:hover {
+      border-color: var(--pink);
+      transform: translateY(-3px);
     }
 
-    .project-num {
-      position: absolute;
-      top: 28px;
-      right: 32px;
-      font-size: 28px;
-      font-weight: 800;
-      color: #e2e8f0;
-      transition: color 0.3s ease;
-    }
-
-    .project-card:hover .project-num {
-      color: var(--text-main);
-    }
-
-    .project-cat {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-muted);
+    .glow-card-date {
+      text-align: center;
+      color: var(--emerald);
+      font-size: 13px;
+      font-family: var(--font-mono);
       margin-bottom: 12px;
     }
 
-    .project-card h3 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 14px;
-      padding-right: 40px;
+    .glow-card-body {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
-    .project-card p {
+    .glow-card-icon {
+      color: var(--violet);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .glow-card:hover .glow-card-icon {
+      transform: scale(1.15);
+    }
+
+    .glow-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .glow-card-sub {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
     }
 
-    .tech-badges {
+    /* ----------------------------------
+       4. SKILLS INFINITE MARQUEE
+    ---------------------------------- */
+    .marquee-wrapper {
+      overflow: hidden;
+      width: 100%;
+      padding: 20px 0;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .marquee-track {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
+      gap: 24px;
+      width: max-content;
+      animation: scrollMarquee 28s linear infinite;
     }
 
-    .badge {
-      background: #f1f5f9;
-      color: #334155;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-      transition: all 0.25s ease;
+    .marquee-wrapper:hover .marquee-track {
+      animation-play-state: paused;
     }
 
-    .project-card:hover .badge {
-      background: #e2e8f0;
-      color: #0f172a;
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    .project-links {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
-    }
-
-    .link-details {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-main);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.25s ease;
-    }
-
-    .link-details:hover {
-      gap: 10px;
-      text-decoration: underline;
-    }
-
-    /* 5. CONTACT SECTION */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 48px;
-    }
-
-    .contact-form {
+    .skill-tile {
+      width: 145px;
+      height: 145px;
+      background: var(--card-bg);
+      border: 1px solid #1f223c;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 14px;
-      background: #fdfdfd;
-      outline: none;
-      transition: border 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent);
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
-    }
-
-    .form-group textarea {
-      height: 120px;
-      resize: vertical;
-    }
-
-    .btn-submit {
-      padding: 14px 24px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 700;
-      font-size: 14px;
-      border: none;
-      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      position: relative;
+      transition: all 0.35s ease;
       cursor: pointer;
-      transition: all 0.3s var(--ease-out-expo);
-      align-self: flex-start;
     }
 
-    .btn-submit:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    .skill-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--violet), transparent);
     }
 
-    .contact-info h2 {
-      font-size: 38px;
-      line-height: 1.2;
-      margin-bottom: 16px;
+    .skill-tile:hover {
+      border-color: var(--violet);
+      transform: scale(1.08);
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
     }
 
-    .contact-info p {
+  .skill-tile svg,
+.skill-tile img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+    .skill-tile span {
       font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 32px;
+      font-weight: 500;
+      color: #fff;
     }
 
-    .contact-detail-item {
+    /* ----------------------------------
+       5. PROJECTS (CODE WINDOW CARDS)
+    ---------------------------------- */
+    .projects-header-bar {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 15px;
+      margin-bottom: 48px;
+    }
+
+    .projects-pill {
+      background: #1a1443;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 18px;
       font-weight: 600;
-      margin-bottom: 16px;
     }
 
-    /* FOOTER */
-    footer {
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-      background: #fff;
+    .projects-line {
+      flex: 1;
+      height: 2px;
+      background: #1a1443;
     }
 
-    .footer-wrapper {
+    .projects-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .project-code-card {
+      background: linear-gradient(135deg, #0d1224 0%, #0a0d37 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-code-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .project-card-top {
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+
+    .project-card-title {
+      color: var(--emerald);
+      font-size: 17px;
+      font-weight: 600;
+      text-align: center;
+      flex: 1;
+    }
+
+    .project-github-btn {
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-github-btn:hover {
+      color: var(--pink);
+    }
+
+    /* ----------------------------------
+       6. CONTACT SECTION
+    ---------------------------------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-card {
+      background: var(--bg-secondary);
+      border: 1px solid #353a52;
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .contact-intro {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .form-field {
+      margin-bottom: 18px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      background: #10172d;
+      border: 1px solid #353a52;
+      border-radius: 6px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.25s ease;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--emerald);
+    }
+
+    .contact-details-col {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 17px;
+    }
+
+    .info-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #8b98a5;
+      color: var(--bg-primary);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .info-row:hover .info-circle {
+      background: var(--emerald);
+      transform: scale(1.1);
+    }
+
+    .contact-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .contact-social-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #8b98a5;
+      color: var(--bg-primary);
+      display: grid;
+      place-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .contact-social-circle:hover {
+      background: var(--emerald);
+      transform: scale(1.1);
+    }
+
+    /* ----------------------------------
+       FOOTER
+    ---------------------------------- */
+    footer {
+      border-top: 1px solid #353951;
+      padding: 28px 0;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-size: 14px;
       color: var(--text-muted);
     }
 
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 992px) {
-      .hero-grid, .about-grid, .contact-grid {
+    .footer-inner span {
+      color: var(--emerald);
+    }
+
+    /* ----------------------------------
+       RESPONSIVE
+    ---------------------------------- */
+    @media (max-width: 960px) {
+      .hero, .about-grid, .split-grid, .contact-grid {
         grid-template-columns: 1fr;
-      }
-      .projects-scroll {
-        grid-template-columns: 1fr;
-      }
-      .hero-illustration {
-        display: none;
       }
       .nav-links {
         display: none;
+      }
+      .illustration-panel {
+        display: none;
+      }
+      .footer-inner {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky Navigation Header -->
+  <!-- Navbar -->
   <header>
-    <div class="container nav-wrapper">
-      <a href="#hero" class="brand-logo">MohitKoratkar</a>
+    <div class="container nav-inner">
+      <a href="#hero" class="brand">MOHIT KORATKAR</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Certifications</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="mailto:koratkarmohit6@gmail.com" class="btn-resume">Resume ↗</a>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="hero" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content reveal">
-        <h1>Hello, I am <span id="typewriter"></span><span class="cursor">&nbsp;</span></h1>
-        <div class="subtitle">Cloud & DevOps Engineer Enthusiast.</div>
-        <p>
-          RHCSA-certified engineer specializing in AWS cloud infrastructure, Docker containerization, CI/CD automated pipelines, CCNA and Linux system administration.
-        </p>
+  <main class="container">
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="hero">
+      <div>
+        <h1 class="hero-title">
+          Hello,<br>
+          This is <span class="text-pink">MOHIT KORATKAR</span>,<br>
+          I'm a Professional <span class="text-emerald">Cloud &amp; DevOps Engineer</span>.
+        </h1>
 
-        <!-- Social Media Links & Exact SVG Icons -->
-        <div class="social-row">
-          <a href="mailto:koratkarmohit6@gmail.com" class="social-card" title="Email">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M3 6.5h18v11a1 1 0 01-1 1H4a1 1 0 01-1-1v-11z"/>
-              <path d="M21 6.5l-9 6-9-6"/>
-            </svg>
+        <div class="hero-socials">
+          <!-- GitHub -->
+          <a href="https://github.com/Mohitkoratkar" target="_blank" class="social-icon" aria-label="GitHub">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-1.9c-2.9.6-3.5-1.1-3.5-1.1-.5-1.4-1.3-1.8-1.3-1.8-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 1.7-.7 1.7-.7.9-1.6 2.5-1.2 3.2-.9.1-.7.4-1.2.7-1.5-2.3-.2-4.8-1.1-4.8-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .9.9-.2 2-.3 3-.3s2.1.1 3 .3c2.1-1.2 3-.9 3-.9.6 1.5.2 2.6.1 2.9.7.7 1.1 1.6 1.1 2.7 0 3.8-2.5 4.6-4.9 4.9.4.3.7 1 .7 2v3c0 .3.2.6.7.5 4.1-1.4 7.1-5.3 7.1-9.9C23.1 5.3 18.3.5 12 .5z"/></svg>
           </a>
-          <a href="https://www.linkedin.com/in/mohit-koratkar-7a8603239/" target="_blank" class="social-card" title="LinkedIn">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M4.98 3.5a2.5 2.5 0 1 1-.004 5.001A2.5 2.5 0 0 1 4.98 3.5zM3.5 9h3v11h-3V9zm7 0h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V20h-3v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V20h-3V9z"/>
-            </svg>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/mohit-koratkar-7a8603239/" target="_blank" class="social-icon" aria-label="LinkedIn">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1-.004 5.001A2.5 2.5 0 0 1 4.98 3.5zM3.5 9h3v11h-3V9zm7 0h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V20h-3v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V20h-3V9z"/></svg>
           </a>
-          <a href="https://github.com/Mohitkoratkar" target="_blank" class="social-card" title="GitHub">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-1.9c-2.9.6-3.5-1.1-3.5-1.1-.5-1.4-1.3-1.8-1.3-1.8-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 1.7-.7 1.7-.7.9-1.6 2.5-1.2 3.2-.9.1-.7.4-1.2.7-1.5-2.3-.2-4.8-1.1-4.8-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .9.9-.2 2-.3 3-.3s2.1.1 3 .3c2.1-1.2 3-.9 3-.9.6 1.5.2 2.6.1 2.9.7.7 1.1 1.6 1.1 2.7 0 3.8-2.5 4.6-4.9 4.9.4.3.7 1 .7 2v3c0 .3.2.6.7.5 4.1-1.4 7.1-5.3 7.1-9.9C23.1 5.3 18.3.5 12 .5z"/>
-            </svg>
+          <!-- Email -->
+          <a href="mailto:koratkarmohit6@gmail.com" class="social-icon" aria-label="Email">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-gradient-outline">
+            <span class="btn-gradient-inner">
+              Contact Me
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+          </a>
+
+          <a href="resume.pdf" target="_blank" class="btn-gradient-solid">
+            Get Resume
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- Hero Vector Illustration -->
-      <div class="hero-illustration reveal">
-        <svg viewBox="0 0 400 320" fill="none" stroke="#000" stroke-width="2">
-          <rect x="20" y="40" width="360" height="240" rx="12" fill="#fff"/>
-          <line x1="20" y1="80" x2="380" y2="80"/>
-          <circle cx="45" cy="60" r="5" fill="#000"/>
-          <circle cx="65" cy="60" r="5" fill="#000"/>
-          <circle cx="85" cy="60" r="5" fill="#000"/>
-          <path d="M60 130 h120 M60 160 h180 M60 190 h100" stroke-dasharray="4 4"/>
-          <rect x="230" y="110" width="120" height="130" rx="8" fill="#f8fafc"/>
-          <path d="M260 160 l20 20 l40 -40"/>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title reveal">My Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          <span>AWS</span>
+      <!-- Right Hero Code Card -->
+      <div class="code-window">
+        <div class="window-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
         </div>
-        <div class="skill-card reveal">
-          <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          <span>Linux (RHEL)</span>
-        </div>
-        <div class="skill-card reveal">
-          <svg viewBox="0 0 24 24"><path d="M4 19h16v-2H4v2zm16-6H4v2h16v-2zM4 9v2h16V9H4zm16-4H4v2h16V5z"/></svg>
-          <span>Docker</span>
-        </div>
-        <div class="skill-card reveal">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          <span>CI/CD</span>
-        </div>
-        <div class="skill-card reveal">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
-          <span>GitHub Actions</span>
-        </div>
-        <div class="skill-card reveal">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
-          <span>Nginx</span>
-        </div>
-        <div class="skill-card reveal">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/></svg>
-          <span>Python</span>
-        </div>
-        <div class="skill-card reveal">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/></svg>
-          <span>Bash Scripting</span>
+        <div class="code-body">
+          <div><span class="c-pink">const</span> <span class="c-white">engineer</span> <span class="c-pink">=</span> <span class="c-gray">{</span></div>
+          <div style="padding-left: 20px;"><span class="c-white">name:</span> <span class="c-gray">'</span><span class="c-amber">Mohit Koratkar</span><span class="c-gray">',</span></div>
+          <div style="padding-left: 20px;"><span class="c-white">certification:</span> <span class="c-gray">'</span><span class="c-amber">RHCSA (EX200)</span><span class="c-gray">',</span></div>
+          <div style="padding-left: 20px;">
+            <span class="c-white">skills:</span> <span class="c-gray">['</span><span class="c-amber">AWS</span><span class="c-gray">', '</span><span class="c-amber">Docker</span><span class="c-gray">', '</span><span class="c-amber">Linux</span><span class="c-gray">', '</span><span class="c-amber">GitHub Actions</span><span class="c-gray">', '</span><span class="c-amber">Nginx</span><span class="c-gray">', '</span><span class="c-amber">Python</span><span class="c-gray">', '</span><span class="c-amber">Bash</span><span class="c-gray">'],</span>
+          </div>
+          <div style="padding-left: 20px;"><span class="c-white">hardWorker:</span> <span class="c-orange">true</span><span class="c-gray">,</span></div>
+          <div style="padding-left: 20px;"><span class="c-white">quickLearner:</span> <span class="c-orange">true</span><span class="c-gray">,</span></div>
+          <div style="padding-left: 20px;"><span class="c-white">problemSolver:</span> <span class="c-orange">true</span><span class="c-gray">,</span></div>
+          <div style="padding-left: 20px;"><span class="c-emerald">hireable:</span> <span class="c-orange">function</span><span class="c-gray">() {</span></div>
+          <div style="padding-left: 40px;"><span class="c-orange">return</span> <span class="c-gray">(</span></div>
+          <div style="padding-left: 60px;"><span class="c-cyan">this.</span><span class="c-white">hardWorker</span> <span class="c-amber">&amp;&amp;</span></div>
+          <div style="padding-left: 60px;"><span class="c-cyan">this.</span><span class="c-white">problemSolver</span> <span class="c-amber">&amp;&amp;</span></div>
+          <div style="padding-left: 60px;"><span class="c-cyan">this.</span><span class="c-white">skills.length</span> <span class="c-amber">&gt;=</span> <span class="c-orange">5</span></div>
+          <div style="padding-left: 40px;"><span class="c-gray">);</span></div>
+          <div style="padding-left: 20px;"><span class="c-gray">},</span></div>
+          <div><span class="c-gray">};</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT ME SECTION -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title reveal">About Me</h2>
+    <hr class="gradient-hr">
+
+    <!-- 2. ABOUT SECTION -->
+    <section id="about">
       <div class="about-grid">
-        <div class="about-avatar reveal">
-          <!-- Profile Picture with exact file path & fallback image -->
+        <div>
+          <div class="about-label">Who I Am?</div>
+          <p class="about-text">
+            My name is Mohit Koratkar. I am an Electronics &amp; Computer Engineering graduate and RHCSA-certified Cloud &amp; DevOps Engineer with hands-on experience across AWS cloud services, Docker containerization, CI/CD pipelines (GitHub Actions), and Linux system administration. I love automating infrastructure workflows with Bash and Python, configuring Nginx servers, and building scalable, resilient cloud architectures.
+          </p>
+        </div>
+
+        <div class="about-img-box">
           <img 
             src="mohit.jpg/WhatsApp Image 2024-09-28 at 00.23.47_823de42a.jpg" 
-            alt="Mohit Koratkar" 
-            id="profileImg"
+            alt="Mohit Koratkar"
             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';"
           />
         </div>
-        <div class="about-text reveal">
-          <h3>Cloud & DevOps Infrastructure Enthusiast</h3>
-          <p>
-            I am an Electronics & Computer Engineering graduate and RHCSA-certified engineer with solid hands-on experience across AWS cloud services, Docker containerization, CI/CD pipelines (GitHub Actions), and Linux system administration.
+      </div>
+    </section>
+
+    <hr class="gradient-hr">
+
+    <!-- 3. EXPERIENCE & CERTIFICATIONS -->
+    <section id="experience">
+      <div class="section-divider">
+        <span class="divider-line left"></span>
+        <span class="section-pill">Experience &amp; Certifications</span>
+        <span class="divider-line right"></span>
+      </div>
+
+      <div class="split-grid">
+        <div class="illustration-panel">
+          <!-- Developer Workstation SVG Vector -->
+          <svg width="300" height="240" viewBox="0 0 300 240" fill="none">
+            <rect x="30" y="30" width="240" height="150" rx="12" fill="#11152c" stroke="#8b5cf6" stroke-width="2"/>
+            <circle cx="52" cy="48" r="5" fill="#ec4899"/>
+            <circle cx="68" cy="48" r="5" fill="#fcd34d"/>
+            <circle cx="84" cy="48" r="5" fill="#16f2b3"/>
+            <rect x="55" y="75" width="90" height="10" rx="5" fill="#8b5cf6" opacity="0.7"/>
+            <rect x="55" y="98" width="160" height="10" rx="5" fill="#16f2b3" opacity="0.6"/>
+            <rect x="55" y="121" width="130" height="10" rx="5" fill="#ec4899" opacity="0.6"/>
+            <rect x="55" y="144" width="180" height="10" rx="5" fill="#38bdf8" opacity="0.5"/>
+            <path d="M110 180 L190 180 L210 210 L90 210 Z" fill="#1a1443" stroke="#8b5cf6" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <div class="cards-stack">
+          <div class="glow-card">
+            <div class="glow-card-date">(May 2026 - July 2026)</div>
+            <div class="glow-card-body">
+              <div class="glow-card-icon">
+                <svg width="36" height="36" fill="currentColor" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+              </div>
+              <div>
+                <div class="glow-card-title">AWS Cloud Intern</div>
+                <div class="glow-card-sub"> EWB Edutech Pvt. Ltd.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glow-card">
+            <div class="glow-card-date">(Certified)</div>
+            <div class="glow-card-body">
+              <div class="glow-card-icon">
+                <svg width="36" height="36" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              </div>
+              <div>
+                <div class="glow-card-title">RHCSA (EX200)</div>
+                <div class="glow-card-sub">Red Hat Certified System Administrator</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glow-card">
+            <div class="glow-card-date">(Certified)</div>
+            <div class="glow-card-body">
+              <div class="glow-card-icon">
+                <svg width="36" height="36" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              </div>
+              <div>
+                <div class="glow-card-title">AWS Cloud Practitioner &amp; Oracle Foundations</div>
+                <div class="glow-card-sub">Amazon Web Services &amp; Oracle Cloud Infrastructure</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="gradient-hr">
+
+    <!-- 4. SKILLS MARQUEE -->
+    <section id="skills">
+      <div class="section-divider">
+        <span class="divider-line left"></span>
+        <span class="section-pill">Skills</span>
+        <span class="divider-line right"></span>
+      </div>
+
+      <div class="marquee-wrapper">
+        <div class="marquee-track">
+          <!-- Set 1 -->
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#ff9900"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>AWS</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#2496ed"><path d="M13 10h2v2h-2v-2zm-3 0h2v2h-2v-2zm-3 0h2v2H7v-2zm3-3h2v2h-2V7zm3 0h2v2h-2V7zm8.5 5.5c-.5-.3-1.6-.4-2.4-.2-.2-1.2-.9-2.2-1.9-2.8l-.4-.3-.3.4c-.6.8-.8 2-.6 3-.4.2-1.1.4-2 .4H2.2c-.3 1.6.1 3.7 1.3 5.2 1.2 1.5 3.1 2.3 5.7 2.3 5.4 0 9.4-2.5 11.3-7.1.8 0 2.4 0 3.2-1.6l.2-.4-.4-.2z"/></svg>
+            <span>Docker</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#fcc624"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+            <span>Linux (RHEL)</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#2088ff"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L5.5 6.2 12 3l6.5 3.2L12 9.5zM2 17l10 5 10-5-2.1-1.1-7.9 3.9-7.9-3.9L2 17z"/></svg>
+            <span>GitHub Actions</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#009639"><path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm4 13h-2l-4-5v5H8V9h2l4 5V9h2v6z"/></svg>
+            <span>Nginx</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#3776ab"><path d="M12 2c-5.5 0-5 2.4-5 2.4V7h5v1H5.5S2 7.6 2 12.5 5 17 5 17h2v-2.5S6.9 12 9.5 12h5s2.5.1 2.5-2.4V4.5S17.5 2 12 2zm-2.5 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            <span>Python</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#4eaa25"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7 15l-3-3 3-3 1.4 1.4L6.8 12l1.6 1.6L7 15zm5 0h-4v-2h4v2z"/></svg>
+            <span>Bash</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#f05032"><path d="M21.6 11.2l-8.8-8.8c-.5-.5-1.2-.5-1.7 0L9.2 4.3l2.3 2.3c.5-.2 1.2-.1 1.6.4.4.4.5 1.1.3 1.6l2.2 2.2c.5-.2 1.2-.1 1.6.4.6.6.6 1.5 0 2.1-.6.6-1.5.6-2.1 0-.4-.4-.5-1.1-.3-1.6l-2.1-2.1v5.5c.6.3.9.9.9 1.6 0 .8-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5c0-.6.4-1.2.9-1.4V9.4c-.5-.2-.9-.8-.9-1.4 0-.2 0-.4.1-.6L8.2 5.2 2.4 11c-.5.5-.5 1.2 0 1.7l8.8 8.8c.5.5 1.2.5 1.7 0l8.7-8.7c.5-.4.5-1.2 0-1.6z"/></svg>
+            <span>Git</span>
+          </div>
+
+          <!-- Duplicate Set for Seamless Loop -->
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#ff9900"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>AWS</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#2496ed"><path d="M13 10h2v2h-2v-2zm-3 0h2v2h-2v-2zm-3 0h2v2H7v-2zm3-3h2v2h-2V7zm3 0h2v2h-2V7zm8.5 5.5c-.5-.3-1.6-.4-2.4-.2-.2-1.2-.9-2.2-1.9-2.8l-.4-.3-.3.4c-.6.8-.8 2-.6 3-.4.2-1.1.4-2 .4H2.2c-.3 1.6.1 3.7 1.3 5.2 1.2 1.5 3.1 2.3 5.7 2.3 5.4 0 9.4-2.5 11.3-7.1.8 0 2.4 0 3.2-1.6l.2-.4-.4-.2z"/></svg>
+            <span>Docker</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#fcc624"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+            <span>Linux (RHEL)</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#2088ff"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L5.5 6.2 12 3l6.5 3.2L12 9.5zM2 17l10 5 10-5-2.1-1.1-7.9 3.9-7.9-3.9L2 17z"/></svg>
+            <span>GitHub Actions</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#009639"><path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm4 13h-2l-4-5v5H8V9h2l4 5V9h2v6z"/></svg>
+            <span>Nginx</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#3776ab"><path d="M12 2c-5.5 0-5 2.4-5 2.4V7h5v1H5.5S2 7.6 2 12.5 5 17 5 17h2v-2.5S6.9 12 9.5 12h5s2.5.1 2.5-2.4V4.5S17.5 2 12 2zm-2.5 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            <span>Python</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#4eaa25"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7 15l-3-3 3-3 1.4 1.4L6.8 12l1.6 1.6L7 15zm5 0h-4v-2h4v2z"/></svg>
+            <span>Bash</span>
+          </div>
+          <div class="skill-tile">
+            <svg viewBox="0 0 24 24" fill="#f05032"><path d="M21.6 11.2l-8.8-8.8c-.5-.5-1.2-.5-1.7 0L9.2 4.3l2.3 2.3c.5-.2 1.2-.1 1.6.4.4.4.5 1.1.3 1.6l2.2 2.2c.5-.2 1.2-.1 1.6.4.6.6.6 1.5 0 2.1-.6.6-1.5.6-2.1 0-.4-.4-.5-1.1-.3-1.6l-2.1-2.1v5.5c.6.3.9.9.9 1.6 0 .8-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5c0-.6.4-1.2.9-1.4V9.4c-.5-.2-.9-.8-.9-1.4 0-.2 0-.4.1-.6L8.2 5.2 2.4 11c-.5.5-.5 1.2 0 1.7l8.8 8.8c.5.5 1.2.5 1.7 0l8.7-8.7c.5-.4.5-1.2 0-1.6z"/></svg>
+            <span>Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="gradient-hr">
+
+    <!-- 5. PROJECTS (CODE WINDOW CARDS) -->
+    <section id="projects">
+      <div class="projects-header-bar">
+        <span class="projects-pill">Projects</span>
+        <span class="projects-line"></span>
+      </div>
+
+      <div class="projects-stack">
+        <!-- Project 1 -->
+        <div class="project-code-card">
+          <div class="project-card-top">
+            <div style="display:flex; gap:8px;">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="project-card-title">Automated CI/CD &amp; Container Infrastructure</div>
+            <a href="https://github.com/Mohitkoratkar" target="_blank" class="project-github-btn">Code ↗</a>
+          </div>
+          <div class="code-body">
+            <div><span class="c-pink">const</span> <span class="c-white">project</span> <span class="c-pink">=</span> <span class="c-gray">{</span></div>
+            <div style="padding-left: 20px;"><span class="c-white">name:</span> <span class="c-gray">'</span><span class="c-amber">Automated CI/CD Pipeline &amp; Containerized Infrastructure</span><span class="c-gray">',</span></div>
+            <div style="padding-left: 20px;">
+              <span class="c-white">tools:</span> <span class="c-gray">['</span><span class="c-amber">Docker</span><span class="c-gray">', '</span><span class="c-amber">GitHub Actions</span><span class="c-gray">', '</span><span class="c-amber">Nginx</span><span class="c-gray">', '</span><span class="c-amber">YAML</span><span class="c-gray">', '</span><span class="c-amber">Docker Hub</span><span class="c-gray">'],</span>
+            </div>
+            <div style="padding-left: 20px;"><span class="c-white">myRole:</span> <span class="c-orange">'DevOps &amp; Cloud Engineer'</span><span class="c-gray">,</span></div>
+            <div style="padding-left: 20px;"><span class="c-white">description:</span> <span class="c-cyan">'Designed and authored end-to-end CI/CD workflows using GitHub Actions and structured YAML to automate multi-stage Docker container builds, security secret injection, testing, and continuous Nginx deployment upon branch commits.'</span></div>
+            <div><span class="c-gray">};</span></div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-code-card">
+          <div class="project-card-top">
+            <div style="display:flex; gap:8px;">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="project-card-title">Serverless Face Recognition Attendance</div>
+            <a href="https://github.com/Mohitkoratkar" target="_blank" class="project-github-btn">Code ↗</a>
+          </div>
+          <div class="code-body">
+            <div><span class="c-pink">const</span> <span class="c-white">project</span> <span class="c-pink">=</span> <span class="c-gray">{</span></div>
+            <div style="padding-left: 20px;"><span class="c-white">name:</span> <span class="c-gray">'</span><span class="c-amber">Serverless Face Recognition Attendance System</span><span class="c-gray">',</span></div>
+            <div style="padding-left: 20px;">
+              <span class="c-white">tools:</span> <span class="c-gray">['</span><span class="c-amber">AWS Lambda</span><span class="c-gray">', '</span><span class="c-amber">AWS Rekognition</span><span class="c-gray">', '</span><span class="c-amber">DynamoDB</span><span class="c-gray">', '</span><span class="c-amber">Amazon S3</span><span class="c-gray">', '</span><span class="c-amber">Cognito</span><span class="c-gray">', '</span><span class="c-amber">Python Boto3</span><span class="c-gray">'],</span>
+            </div>
+            <div style="padding-left: 20px;"><span class="c-white">myRole:</span> <span class="c-orange">'Cloud Backend Architect'</span><span class="c-gray">,</span></div>
+            <div style="padding-left: 20px;"><span class="c-white">description:</span> <span class="c-cyan">'Built an event-driven AWS serverless backend where S3 image uploads trigger Lambda execution to perform real-time biometric verification via AWS Rekognition, storing logs in DynamoDB with Cognito JWT authorization.'</span></div>
+            <div><span class="c-gray">};</span></div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-code-card">
+          <div class="project-card-top">
+            <div style="display:flex; gap:8px;">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="project-card-title">AWS Microservices Load Balancer Setup</div>
+            <a href="https://github.com/Mohitkoratkar" target="_blank" class="project-github-btn">Code ↗</a>
+          </div>
+          <div class="code-body">
+            <div><span class="c-pink">const</span> <span class="c-white">project</span> <span class="c-pink">=</span> <span class="c-gray">{</span></div>
+            <div style="padding-left: 20px;"><span class="c-white">name:</span> <span class="c-gray">'</span><span class="c-amber">Multi-Instance AWS ALB Microservices Routing</span><span class="c-gray">',</span></div>
+            <div style="padding-left: 20px;">
+              <span class="c-white">tools:</span> <span class="c-gray">['</span><span class="c-amber">AWS EC2</span><span class="c-gray">', '</span><span class="c-amber">Application Load Balancer</span><span class="c-gray">', '</span><span class="c-amber">Apache</span><span class="c-gray">', '</span><span class="c-amber">Target Groups</span><span class="c-gray">', '</span><span class="c-amber">Linux</span><span class="c-gray">'],</span>
+            </div>
+            <div style="padding-left: 20px;"><span class="c-white">myRole:</span> <span class="c-orange">'Cloud Infrastructure Engineer'</span><span class="c-gray">,</span></div>
+            <div style="padding-left: 20px;"><span class="c-white">description:</span> <span class="c-cyan">'Architected a fault-tolerant microservices deployment across 7 Linux EC2 instances behind an AWS Application Load Balancer with custom path-based routing rules and automated target health monitoring.'</span></div>
+            <div><span class="c-gray">};</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="gradient-hr">
+
+    <!-- 6. EDUCATION SECTION -->
+    <section id="education">
+      <div class="section-divider">
+        <span class="divider-line left"></span>
+        <span class="section-pill">Education</span>
+        <span class="divider-line right"></span>
+      </div>
+
+      <div class="split-grid">
+        <div class="illustration-panel">
+          <!-- Graduation Cap Vector SVG -->
+          <svg width="260" height="220" viewBox="0 0 260 220" fill="none">
+            <polygon points="130,30 240,80 130,130 20,80" fill="#1a1443" stroke="#16f2b3" stroke-width="2"/>
+            <path d="M65 102 V155 C65 175 195 175 195 155 V102" fill="#11152c" stroke="#8b5cf6" stroke-width="2"/>
+            <line x1="225" y1="86" x2="225" y2="150" stroke="#ec4899" stroke-width="3"/>
+            <circle cx="225" cy="154" r="6" fill="#ec4899"/>
+          </svg>
+        </div>
+
+        <div class="cards-stack">
+          <div class="glow-card">
+            <div class="glow-card-date">2021 - 2025 (CGPA: 7.56 / 10)</div>
+            <div class="glow-card-body">
+              <div class="glow-card-icon">
+                <svg width="36" height="36" fill="currentColor" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+              </div>
+              <div>
+                <div class="glow-card-title">B.Tech in Electronics &amp; Computer Engineering</div>
+                <div class="glow-card-sub">Maharashtra Institute of Technology, Aurangabad</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glow-card">
+            <div class="glow-card-date">Percentage: 83.83%</div>
+            <div class="glow-card-body">
+              <div class="glow-card-icon">
+                <svg width="36" height="36" fill="currentColor" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+              </div>
+              <div>
+                <div class="glow-card-title">Higher Secondary Certificate (HSC)</div>
+                <div class="glow-card-sub">Jawaharlal Darda Junior College, Yavatmal</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glow-card">
+            <div class="glow-card-date">Percentage: 88.40%</div>
+            <div class="glow-card-body">
+              <div class="glow-card-icon">
+                <svg width="36" height="36" fill="currentColor" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+              </div>
+              <div>
+                <div class="glow-card-title">Secondary School Certificate (SSC)</div>
+                <div class="glow-card-sub">Loknayak Bapuji Aney School, Yavatmal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="gradient-hr">
+
+    <!-- 7. CONTACT SECTION -->
+    <section id="contact">
+      <div class="about-label" style="margin-bottom: 24px;">Contact With Me</div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="contact-intro">
+            If you have any questions or opportunities regarding Cloud Engineering, DevOps, or Linux Administration, please don't hesitate to contact me.
           </p>
-          <p>
-            Proven capability in configuring and maintaining development/production environments, automating build/deployment workflows with Bash and Python, managing Nginx web servers, and troubleshooting deployment, log, and network connectivity issues.
-          </p>
-
-          <div class="edu-box">
-            <div class="edu-title">Education</div>
-            <div class="edu-item">
-              <strong>B.Tech in Electronics & Computer Engineering</strong>
-              <p>Maharashtra Institute of Technology, Aurangabad — CGPA: 7.64 / 10</p>
+          <form id="contactForm">
+            <div class="form-field">
+              <label for="cName">Your Name:</label>
+              <input type="text" id="cName" required />
             </div>
-            <div class="edu-item">
-              <strong>HSC & SSC</strong>
-              <p>Jawaharlal Darda Junior College & Loknayak Bapuji Aney School, Yavatmal</p>
+            <div class="form-field">
+              <label for="cEmail">Your Email:</label>
+              <input type="email" id="cEmail" required />
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section id="projects">
-    <div class="container">
-      <div class="projects-header reveal">
-        <div>
-          <span class="sub-tag">SELECTED WORK</span>
-          <h2>Projects</h2>
-        </div>
-        <span class="swipe-hint"></span>
-      </div>
-
-      <div class="projects-scroll">
-        <div class="project-card reveal">
-          <span class="project-num">01</span>
-          <div>
-            <div class="project-cat">DEVOPS / CI-CD WORKFLOW</div>
-            <h3>Automated CI/CD Pipeline & Containerized Infrastructure</h3>
-            <p>
-              Designed and authored end-to-end CI/CD workflows using GitHub Actions and structured YAML to automate container builds, testing, and continuous deployment upon branch commits.
-            </p>
-            <div class="tech-badges">
-              <span class="badge">Docker</span>
-              <span class="badge">GitHub Actions</span>
-              <span class="badge">Nginx</span>
-              <span class="badge">YAML</span>
-              <span class="badge">Docker Hub</span>
-              <span class="badge">HTML</span>
-              <span class="badge">CSS</span>
+            <div class="form-field">
+              <label for="cMessage">Your Message:</label>
+              <textarea id="cMessage" rows="4" required></textarea>
             </div>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Mohitkoratkar" target="_blank" class="link-details">View Details →</a>
-          </div>
-        </div>
-
-        <div class="project-card reveal">
-          <span class="project-num">02</span>
-          <div>
-            <div class="project-cat">SERVERLESS / AWS ARCHITECTURE</div>
-            <h3>Serverless Face Recognition Attendance System</h3>
-            <p>
-              Built an event-driven AWS backend where S3 image uploads automatically trigger Lambda execution to conduct real-time biometric verification via AWS Rekognition.
-            </p>
-            <div class="tech-badges">
-              <span class="badge">AWS Lambda</span>
-              <span class="badge">AWS Rekognition</span>
-              <span class="badge">DynamoDB</span>
-              <span class="badge">Amazon S3</span>
-              <span class="badge">API Gateway</span>
-              <span class="badge">Python</span>
+            <div style="text-align: center; margin-top: 24px;">
+              <button type="submit" class="btn-gradient-solid" style="border:none; cursor:pointer;">
+                Send Message
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
             </div>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Mohitkoratkar" target="_blank" class="link-details">View Details →</a>
-          </div>
+          </form>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CERTIFICATIONS SECTION -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title reveal">Certifications</h2>
-      <div class="skills-grid">
-        <div class="skill-card reveal" style="padding: 32px 20px;">
-          <strong style="font-size: 18px;">RHCSA (EX200)</strong>
-          <span style="color: var(--text-muted); font-size: 13px;">Red Hat Certified System Administrator</span>
-        </div>
-        <div class="skill-card reveal" style="padding: 32px 20px;">
-          <strong style="font-size: 18px;">AWS Cloud Practitioner</strong>
-          <span style="color: var(--text-muted); font-size: 13px;">AWS Essentials & Cloud Security</span>
-        </div>
-        <div class="skill-card reveal" style="padding: 32px 20px;">
-          <strong style="font-size: 18px;">Oracle Cloud Foundations</strong>
-          <span style="color: var(--text-muted); font-size: 13px;">Oracle Certified Associate</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid reveal">
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Message sent.');">
-          <div class="form-group">
-            <input type="text" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Email" required>
-          </div>
-          <div class="form-group">
-            <input type="text" placeholder="Your topic / subject">
-          </div>
-          <div class="form-group">
-            <textarea placeholder="How can I help?" required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Get In Touch</button>
-        </form>
-
-        <div class="contact-info">
-          <h2>Let's talk for Something special</h2>
-          <p>
-            I seek to build automated, highly resilient cloud solutions. Feel free to reach out for DevOps, Cloud Engineering, or Infrastructure inquiries.
-          </p>
-          <div class="contact-detail-item">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
+        <div class="contact-details-col">
+          <div class="info-row">
+            <div class="info-circle">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
             <span>koratkarmohit6@gmail.com</span>
-        <br>
-            <span>Phone: 9067120396</span>
+          </div>
+
+          <div class="info-row">
+            <div class="info-circle">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span>Maharashtra, India</span>
+          </div>
+
+          <div class="contact-socials">
+            <a href="https://github.com/Mohitkoratkar" target="_blank" class="contact-social-circle" aria-label="GitHub">
+              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-1.9c-2.9.6-3.5-1.1-3.5-1.1-.5-1.4-1.3-1.8-1.3-1.8-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 1.7-.7 1.7-.7.9-1.6 2.5-1.2 3.2-.9.1-.7.4-1.2.7-1.5-2.3-.2-4.8-1.1-4.8-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .9.9-.2 2-.3 3-.3s2.1.1 3 .3c2.1-1.2 3-.9 3-.9.6 1.5.2 2.6.1 2.9.7.7 1.1 1.6 1.1 2.7 0 3.8-2.5 4.6-4.9 4.9.4.3.7 1 .7 2v3c0 .3.2.6.7.5 4.1-1.4 7.1-5.3 7.1-9.9C23.1 5.3 18.3.5 12 .5z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/mohit-koratkar-7a8603239/" target="_blank" class="contact-social-circle" aria-label="LinkedIn">
+              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1-.004 5.001A2.5 2.5 0 0 1 4.98 3.5zM3.5 9h3v11h-3V9zm7 0h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V20h-3v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V20h-3V9z"/></svg>
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    <div class="container footer-wrapper">
-      <div>Mohit Koratkar — Cloud & DevOps Engineer</div>
-      <div>© <span id="year"></span> All rights reserved.</div>
+    <div class="container footer-inner">
+      <div>&copy; Developer Portfolio by <span>Mohit Koratkar</span></div>
+      <div>Hosted on GitHub Pages</div>
     </div>
   </footer>
 
   <script>
-    // Dynamic Year Update
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Typewriter Effect for Headline
-    const textToType = "Mohit Koratkar";
-    const typewriterEl = document.getElementById('typewriter');
-    let charIndex = 0;
-
-    function typeChar() {
-      if (charIndex < textToType.length) {
-        typewriterEl.textContent += textToType.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeChar, 100);
-      }
-    }
-    setTimeout(typeChar, 600);
-
-    // Scroll Reveal IntersectionObserver
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -60px 0px',
-      threshold: 0.15
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('active');
-          }, 60);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      revealObserver.observe(el);
-    });
-
-    // Active Navigation Highlight on Scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href').includes(current)) {
-          a.classList.add('active');
-        }
-      });
+    // Contact Form Mailto Launcher
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('cName').value;
+      const email = document.getElementById('cEmail').value;
+      const msg = document.getElementById('cMessage').value;
+      const mailto = `mailto:koratkarmohit6@gmail.com?subject=${encodeURIComponent('Portfolio Inquiry from ' + name)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + msg)}`;
+      window.location.href = mailto;
     });
   </script>
 </body>
